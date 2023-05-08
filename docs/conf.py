@@ -185,10 +185,20 @@ issues_github_path = "HinodeXRT/xrtpy"
 python_role = "py:.*"
 
 nitpick_ignore_regex = [
+    # Before adding patterns for type specifications in docstrings, note
+    # that information on the *meaning* of a parameter should be
+    # included in the parameter description instead.
     (python_role, "and"),
     (python_role, "array .*"),
     (python_role, "array_like"),
     (python_role, "callable"),
+    # for defaults that are words, numbers, particle symbols like "p+"
+    (python_role, r"default: [-\+]?\w+[-\+]?\.?\d*"),
+    # for defaults that are lists, tuples, sets, dictionaries, and strings
+    (python_role, r"default: ((\[.*\])|(\(.*\))|(\{.*\})|(\".*\")|(\'.*\'))"),
+    # for defaults that are calls like Particle("p+") or items from a dictionary
+    (python_role, r"default: \w+[\.\w]*[\(\[].*[\)\]]"),
+    (python_role, "dictionary.*"),
     (python_role, "function"),
     (python_role, ".*integer.*"),
     (python_role, "iterable"),
@@ -197,7 +207,11 @@ nitpick_ignore_regex = [
     (python_role, ".* object"),
     (python_role, "optional"),
     (python_role, "or"),
+    (python_role, "Real"),
     (python_role, ".*real number.*"),
+    (python_role, ".*representation.*"),
+    (python_role, "shape.*"),
+    (python_role, r"u\..*"),
     (python_role, ".*Unit.*"),
 ]
 
