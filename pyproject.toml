@@ -64,7 +64,7 @@ docs = [
   # This is a bug upstream in the extension which
   # has yet to be fixed.
   "setuptools",
-  "sphinx >= 7.3.0",
+  "sphinx >= 7.3.0, < 8",
   "sphinx_automodapi >= 0.17.0",
   "sphinx-copybutton >= 0.5.2",
   "sphinx-gallery >= 0.16.0",
