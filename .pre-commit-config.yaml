@@ -82,3 +82,8 @@ repos:
     name: autoformat code blocks in docs
     additional_dependencies:
     - black
+
+- repo: https://github.com/tox-dev/pyproject-fmt
+  rev: v2.5.1
+  hooks:
+  - id: pyproject-fmt
